@@ -1,11 +1,21 @@
+from os import sep
 import pandas as pd
 import openpyxl
 from pandas.core.indexes.base import Index   
 
 '''CON CSV donde sacare los datos par amandar el valor 1'''
-arch_csv = pd.read_csv('1.csv')
-print(arch_csv[['Participants']])
+#Lectura del archivo CSV
+arch_csv = pd.read_csv('1.csv', sep =',')
+jsCSV = arch_csv[['Participants']]
+jsCSV.to_json('jsCSV.json')
+#listaCSV = []
+#listaCSV.append(arch_csv[['Participants']])
+#print(listaCSV)
+#print(arch_csv[['Participants']])
+
+#print(arch_csv[['Participants']]
 
 '''CON XLSX es a donde voy a mandar el 1 cuando Participants sea igual entre B19;B66'''
-arch_excel = pd.read_excel('2.xlsx')
-print(arch_excel[['CONTROL DE ASISTENCIA']].iloc[17:66])
+arch_excel = pd.read_excel('2.xlsx', sep = ',')
+jsXLSX = arch_excel[['CONTROL DE ASISTENCIA']].iloc[17:66]
+#print(arch_excel[['CONTROL DE ASISTENCIA']].iloc[17:66])
