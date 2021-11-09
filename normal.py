@@ -18,10 +18,27 @@ for i in datosCVS:
 arch_csv = pd.read_csv('1.csv', sep =',')
 datosCVS = arch_csv[['Participants']]
 datosCVS.to_excel('1.xlsx')
-wb = load_workbook (filename='1.xlsx')
-ws = wb.active
-ws['B']
+wb = load_workbook(filename = '1.xlsx',data_only=True)
+wb2 = wb['Sheet1']
+# data = wb2["B2"].value
+# data2 = data.split(" ")
 
+# range_cell = wb2['B2':'B47']
+
+# cell_range = wb['B2':'B47']
+# print(wb.sheetnames)
+# print(range_cell)
+                #values_only=True son para los valores que tiene dentro de la celda, dentro
+for col in wb2.iter_cols(min_row=2, max_col=2, max_row=47, values_only=True):
+    # print(col)
+    col = list(col)
+    # print(col)
+    # for cell in col:
+    #     print(cell)
+
+for nombre in col:
+    arr_nombre = nombre.split(" ")
+    print(arr_nombre)
 
 #datosCVS.to_excel('1.xlsx')
 '''esta lines convierte la consulta del CVS a json'''
